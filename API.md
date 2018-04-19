@@ -76,7 +76,7 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 ### 参数类型：
 	无
-	
+
 ### 返回示例：
 
 	{
@@ -110,7 +110,7 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 ### 参数类型：
 	无
-	
+
 ### 返回示例：
 
 	{
@@ -139,7 +139,7 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 ### 参数类型：
 	无
-	
+
 ### 返回示例：
 
 	{
@@ -160,7 +160,7 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 
 ## 5、获取一次性验证码
-     
+
 ### 请求URL：
 	http://localhost:3000/captcha
 
@@ -183,7 +183,7 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 
 ## 6、用户名密码登陆
-     
+
 ### 请求URL：
 	http://localhost:3000/login_pwd
 
@@ -213,7 +213,7 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 
 ## 7、发送短信验证码
-     
+
 ### 请求URL：
 	http://localhost:3000/sendcode
 
@@ -232,10 +232,10 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
       {
         "code": 0,
       }
-      
-      
+
+
 ## 8、手机号验证码登陆
-     
+
 ### 请求URL：
 	http://localhost:3000/login_sms
 
@@ -244,25 +244,26 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 ### 参数类型: 请求体
 
-	|参数		|是否必选 |类型     |说明
-	|phone       |Y       |string   |手机号
-	|code        |Y       |string   |验证码
+	  |参数		|是否必选 |类型     |说明
+  	|phone       |Y       |string   |手机号
+  	|code        |Y       |string   |验证码
+  	|captcha     |Y       |string   |图形验证码
 
 ### 返回示例：
-    * 登陆成功
-      {
-        "code": 0,
-        "data": {
-          "_id": "5a9cd9c6ad5b2d34d42b385d",
-          "phone": "13716962779"
-        }
-      }
-    * 登陆失败
-      {
-        "code": 1,
-        "msg": "手机号或验证码不正确"
-      }
-      
+       * 登陆成功
+         {
+           "code": 0,
+           "data": {
+             "_id": "5a9cd9c6ad5b2d34d42b385d",
+             "phone": "13716962779"
+           }
+         }
+       * 登陆失败
+         {
+           "code": 1,
+           "msg": "手机号或验证码或图形验证码不正确"
+         }
+
 ### 9、根据会话获取用户信息
 
 #### 请求URL：
@@ -296,7 +297,7 @@ GitHub地址：https://github.com/piaoxiaobo/epet_server<br>
 
 ### 参数类型：
 	无
-	
+
 ### 返回示例：
 
 	{

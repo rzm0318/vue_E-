@@ -2,5 +2,11 @@ export default {
   adlist:{},
   carousel:{},
   classify:{},
-  brand:{}
+  brand:{},
+  all:{},
+  captcha:{},
+  loginpwd:{},
+  sendcode:{},
+  loginsms:{},
+  userInfo: {}
 }

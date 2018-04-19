@@ -7,7 +7,8 @@ import List from "../pages/Classify/List/List.vue"
 import Brand from "../pages/Classify/Brand/Brand.vue"
 import Cart from "../pages/Cart/Cart.vue"
 import Profile from "../pages/Profile/Profile.vue"
-
+import AllBrand from "../pages/AllBrand/AllBrand.vue"
+import Home from "../components/Home/Home.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +16,9 @@ export default new Router({
     {
       path: '/homepage',
       component: HomePage,
+      meta:{
+        showFooter:true
+      }
     },
     {
       path: '/classify',
@@ -22,17 +26,24 @@ export default new Router({
       children:[
           {
             path:'/classify/list',
-            component: List
+            component: List,
+            meta:{
+              showFooter:true
+            }
           },
           {
             path:'/classify/brand',
-            component: Brand
+            component: Brand,
+            meta:{
+              showFooter:true
+            }
           },
           {
             path: '',
             redirect: '/classify/list'
           },
-      ]
+      ],
+
 
     },
     {
@@ -44,9 +55,18 @@ export default new Router({
       component: Profile,
     },
     {
+      path:"/allbrand",
+      component:AllBrand
+    },
+    {
+      path: '/home',
+      component:Home,
+    },
+    {
       path:"/",
       redirect:"/homePage"
     }
+
   ],
 
 })

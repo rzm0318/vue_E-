@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer_guide border-1px">
+  <footer class="footer_guide border-1px" >
     <a href="javascript:;" class="guide_item"  :class="{on:$route.path==='/homePage'}"
      @click="goTo('/homePage')">
       <span class="item_icon">
@@ -36,7 +36,7 @@
 
     methods:{
       goTo(path){
-        this.$router.replace(path)
+        this.$router.push(path)
       }
     }
   }

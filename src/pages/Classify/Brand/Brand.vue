@@ -1,17 +1,20 @@
 <template>
-  <div class="brand-wrap" v-if=" brand.brand">
-    <div class="cBrand" v-for="(one,index) in brand.brand" :key="index">
-      <div class="title"> ----{{one.title}}----  </div>
-      <div class="wrap">
-        <ul class="brand-img">
-          <li v-for="(oneChild,index) in one.list" :key="index">
-            <img :src="oneChild.logo">
-            <div class="name">{{oneChild.name}}</div>
-            <div class="address">{{oneChild.address}}</div>
-          </li>
-        </ul>
+  <div>
+    <div class="brand-wrap" v-if=" brand.brand">
+      <div class="cBrand" v-for="(one,index) in brand.brand" :key="index">
+        <div class="title"> ----{{one.title}}----  </div>
+        <div class="wrap">
+          <ul class="brand-img">
+            <li v-for="(oneChild,index) in one.list" :key="index">
+              <img :src="oneChild.logo">
+              <div class="name">{{oneChild.name}}</div>
+              <div class="address">{{oneChild.address}}</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+    <div class="circle" @click="$router.push('/allbrand')">全部</div>
   </div>
 
 </template>
@@ -67,4 +70,16 @@
             padding 10px
             margin 0 6px
 
+  .circle
+    width 40px
+    height 40px
+    background: rgba(0,0,0,.4);
+    border-radius 50%
+    position fixed
+    right 5px
+    bottom 65px
+    text-align center
+    line-height 40px
+    font-size 12px
+    color #fff
 </style>
