@@ -22,7 +22,7 @@ export  const reqCaptcha =()=>ajax("/api/captcha")
 export  const reqLoginPwd =(name,pwd)=>ajax("/api/login_pwd",{name,pwd},"POST")
 
 // [7、发送短信验证码](#5发送短信验证码)<br/>
-export  const reqSendCode =(phone)=>ajax("/api/sendcode",{phone})
+export  const SendCode =(phone)=>ajax("/api/sendcode",{phone})
 
 // [8、手机号验证码登陆](#6手机号验证码登陆)<br/>
 export  const reqLoginSms =(phone,name,captcha)=>ajax("/api/login_sms",{phone,name,captcha},"POST")

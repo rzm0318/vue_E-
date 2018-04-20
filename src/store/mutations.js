@@ -24,9 +24,6 @@ export default {
   [RECEIVE_LOGINPWD] (state, {loginpwd}) {
     state.loginpwd = loginpwd
   },
-  [RECEIVE_SENDCODE] (state, {sendcode}) {
-    state.sendcode = sendcode
-  },
   [RECEIVE_LOGINSMS] (state, {loginsms}) {
     state.loginsms = loginsms
   },

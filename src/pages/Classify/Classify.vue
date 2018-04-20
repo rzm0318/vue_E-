@@ -2,12 +2,12 @@
   <div>
     <div class="tab">
       <div class="tab-item1">
-        <router-link to="/classify/list" replace>
+        <router-link to="/classify/list" class="title" replace >
           分类
         </router-link>
       </div>
       <div class="tab-item2">
-        <router-link to="/classify/brand" replace>
+        <router-link to="/classify/brand" class="title"  replace>
           品牌
         </router-link>
       </div>
@@ -36,7 +36,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .tab
-    background: lightcoral
+    background: white
     line-height 40px
     height 40px
     position fixed
@@ -44,15 +44,20 @@
     right 0
     top 0
     z-index 111
+    border-bottom #dbd8db 1px solid
     .tab-item1
       width 40%
       float left
       text-align right
-      .router-link
-        color black
+      .title
+        color #0d0e0e
+        font-size bold
     .tab-item2
       float right
       width 40%
+      .title
+        color #0d0e0e
+        font-size bold
     .search
       position absolute
       top 5px

@@ -6,6 +6,5 @@ export const RECEIVE_CAROUSEL = 'receive_carousel' //取轮播图广告和每日
 export const RECEIVE_ALL = 'receive_all'
 export const RECEIVE_CAPTCHA = 'receive_captcha';
 export const RECEIVE_LOGINPWD = 'receive_loginpwd';
-export const RECEIVE_SENDCODE = 'receive_sendcode';
 export const RECEIVE_LOGINSMS = 'receive_loginsms';
 export const RECEIVE_USERINFO = 'receive_userinfo';

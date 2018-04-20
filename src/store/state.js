@@ -6,7 +6,6 @@ export default {
   all:{},
   captcha:{},
   loginpwd:{},
-  sendcode:{},
   loginsms:{},
   userInfo: {}
 }

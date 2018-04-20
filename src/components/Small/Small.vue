@@ -12,5 +12,5 @@
   .line
     width 100%
     height 10px
-    background: #cbe9ce
+    background: #eee
 </style>

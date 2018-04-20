@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CartHeader/>
+    <CartHeader :name="name"/>
     <mt-index-list class="chart">
       <mt-index-section v-for="(brand , index) in all.brand" :index="`${brand.order}`" :key="index">
       <div class="allbrands" >
@@ -32,6 +32,11 @@
   Vue.component(IndexList.name, IndexList);
   Vue.component(IndexSection.name, IndexSection);
   export default {
+    data(){
+      return{
+        name:"全部品牌"
+      }
+    },
     components:{
       CartHeader
     },

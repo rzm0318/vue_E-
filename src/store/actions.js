@@ -1,5 +1,5 @@
 import {reqAdList,reqClassify,reqBrand,reqCarousel,reqAllBrand,reqCaptcha,reqLoginPwd,
-  reqSendCode,reqLoginSms,reqUserinfo} from "../api/index"
+  reqLoginSms,reqUserinfo} from "../api/index"
 import {RECEIVE_ADLIST,RECEIVE_CLASSIFY,RECEIVE_BRAND,RECEIVE_CAROUSEL,RECEIVE_ALL,
   RECEIVE_CAPTCHA,RECEIVE_LOGINPWD,RECEIVE_SENDCODE,RECEIVE_LOGINSMS,RECEIVE_USERINFO} from "./mutations-types"
 

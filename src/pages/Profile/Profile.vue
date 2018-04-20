@@ -10,7 +10,7 @@
       </div>
       <div class="header-title">
         <div class="left" @click="isVision">
-          <div>普通登录</div>
+          <div >普通登录</div>
           <i class="iconfont icon-xiaosanjiaoup" v-show="isShow"></i>
         </div>
         <div class="right" @click="isVision">
@@ -20,11 +20,11 @@
       </div>
     </div>
     <div class="content">
-      <form action="">
-        <div class="normal" v-show="isShow">
+      <form action="" >
+        <div class="normal" v-show="isShow" @submit.prevent="handleSubmit">
           <div class="first">
             <i class="iconfont icon-yonghu"></i>
-            <input type="text" placeholder="手机号/邮箱/用户名" v-model="phone_user">
+            <input type="text" placeholder="手机号/邮箱/用户名" v-model="user_psd">
           </div>
           <div class="second">
             <i class="iconfont icon-mima"></i>
@@ -33,21 +33,22 @@
           <span class="psd">忘记密码？</span>
           <button class="login_submit">登录</button>
         </div>
-        <div class="phone"  v-show="!isShow">
+        <div class="phone"  v-show="!isShow" @submit.prevent="handleSubmit">
           <div class="first">
             <i class="iconfont icon-yonghu"></i>
             <input type="text" placeholder="已注册的手机号" v-model="iphone">
           </div>
           <div class="second">
-           <i class="iconfont icon-mima"></i>
-           <input type="password" placeholder="请输入图片内容" v-model="affirm">
-           <img class="get_verification" src="http://localhost:3000/captcha"
-                 >
-         </div>
+            <i class="iconfont icon-mima"></i>
+            <input type="password" placeholder="请输入图片内容" v-model="affirm">
+            <img class="get_verification" src="http://localhost:3000/captcha"
+                 @click="updateCaptcha">
+          </div>
           <div class="third">
             <i class="iconfont icon-mima"></i>
-            <input type="password" placeholder="动态密码密码" v-model="phone_psd">
-            <a>获取动态验证码</a>
+            <input type="password" placeholder="动态密码密码" v-model="phone_psd" >
+            <a @click="sendMsg"  v-show="!time">获取动态验证码</a>
+            <a @click="sendMsg" v-show="time">还剩{{time}}秒</a>
           </div>
           <span>忘记密码？</span>
           <button class="login_submit">登录</button>
@@ -75,17 +76,63 @@
     data(){
       return {
         isShow:true,
-        phone_user:{},
-        user_psd:{},
-        iphone:{},
-        affirm:{},
-        phone_psd:{}
+        phone_user:'',
+        user_psd:'',
+        iphone:'',
+        affirm:'',
+        phone_psd:'',
+        time: 0
       }
     },
     methods:{
       isVision(){
         this.isShow=!this.isShow
-      }
+      },
+      sendMsg () {
+        if (!this.time) {
+          this.time = 60
+          this.intervalId = setInterval(() => {
+            this.time--
+            if (this.time === 0) {
+              clearInterval(this.intervalId)
+            }
+          }, 1000)
+        }
+      },
+      handleSubmit () {
+        if (this.isShow) { // 用户密码登录
+          const {name, pwd} = this
+          if (!name || !pwd) {
+            MessageBox.alert('请输入用户名或密码！')
+            return
+          }
+          const regExp = /[A-Za-z0-9_\-\u4e00-\u9fa5]+/
+          if (regExp.test(name)) {
+            // 发送后台请求，验证用户密码是否正确
+          }else {
+            MessageBox.alert("请输入正确的用户名格式！")
+          }
+
+        }else { // 手机号码登录
+          const {phone, code, captcha} = this
+          if (!phone || !code) {
+            MessageBox.alert('请输入手机号或密码！')
+            return
+          }else if (!captcha) {
+            MessageBox.alert("请输入图片验证码内容")
+            return
+          }
+          const regExp = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+          if (regExp.test(phone)) {
+            // 发送后台请求，验证用户密码是否正确
+          }else {
+            MessageBox.alert("请输入正确的手机号码！")
+          }
+        }
+      },
+      updateCaptcha (event) {
+        event.target.src='http://localhost:3000/captcha?time='+Date.now()
+      },
     }
   }
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CartHeader/>
+    <CartHeader :name="name"/>
     <div class="bg-img">
       <div class="xuebi"></div>
       <div class="space">购物车是空的</div>
@@ -15,17 +15,23 @@
 <script>
   import CartHeader from "../../components/CartHeader/CartHeader.vue"
   export default {
+    data(){
+      return{
+        name:"购物车"
+      }
+    },
     components:{
       CartHeader
     }
+
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
+  @import "../Cart/reset.css"
   .bg-img
     height 295px
-    background: #eeeeee;
+    background: white;
     .xuebi
       width 375px
       height 170px
